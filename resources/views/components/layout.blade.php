@@ -43,6 +43,14 @@
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-4 flex items-center md:ml-6">
+                            @auth
+                            <form method='POST' action="{{route('logout')}}">
+                                @csrf
+                                <button
+                                    class="py-2 px-3 rounded-lg border-2 shadow-md bg-none cursor-pointer hover:shadow-xl bg-slate-100 duration-150 transition-all">
+                                    Logout
+                                </button>
+                            </form>
                             <div class="relative ml-3">
                                 <a href="#" class="flex justify-center items-center gap-2" type="button"
                                     class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -64,6 +72,20 @@
                                     </div>
                                 </a>
                             </div>
+                            @endauth
+
+                            @guest
+                            <div class="flex items-center gap-4">
+                                <a
+                                    class="py-2 px-3 rounded-lg border-2 shadow-md bg-none cursor-pointer hover:shadow-xl bg-slate-100 duration-150 transition-all">
+                                    Login
+                                </a>
+                                <a
+                                    class="py-2 px-3 rounded-lg border-2 shadow-md bg-none cursor-pointer hover:shadow-xl bg-slate-100 duration-150 transition-all">
+                                    register
+                                </a>
+                            </div>
+                            @endguest
                         </div>
                     </div>
                     <div class="-mr-2 flex md:hidden">
