@@ -16,11 +16,12 @@ Route::get('/create', [JobController::class, 'create']);
 
 Route::post('/store', [JobController::class, 'store']);
 
-Route::get('/edit/{id}', [JobController::class, 'edit']);
+Route::get('/edit/{job}', [JobController::class, 'edit'])
+    ->middleware('auth');
 
-Route::patch('/update/{id}', [JobController::class, 'update']);
+Route::patch('/update/{job}', [JobController::class, 'update']);
 
-Route::delete('/destroy/{id}', [JobController::class, 'destroy']);
+Route::delete('/destroy/{job}', [JobController::class, 'destroy']);
 
 Route::get('/contact', function () {
     return view('contact');

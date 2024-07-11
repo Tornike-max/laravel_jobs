@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Employer;
 use App\Models\JobListing;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class JobController extends Controller
 {
@@ -57,6 +60,7 @@ class JobController extends Controller
     public function show(string $id)
     {
         $job = JobListing::findOrFail($id);
+
         return view('show', [
             'job' => $job
         ]);
@@ -69,6 +73,8 @@ class JobController extends Controller
     {
         $employers = Employer::latest()->get();
         $job = JobListing::findOrFail($id);
+
+        Gate::authorize('can-make-actions', $job);
 
         return view('edit', [
             'job' => $job,
@@ -88,6 +94,8 @@ class JobController extends Controller
         ]);
 
         $job = JobListing::findOrFail($id);
+        Gate::authorize('can-make-actions', $job);
+
 
         $job->update($data);
 

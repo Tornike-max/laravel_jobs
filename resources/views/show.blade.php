@@ -12,9 +12,11 @@
                 Delete
             </button>
         </form>
+        @can('can-make-actions', $job)
         <a href="/edit/{{$job->id}}"
             class="py-2 px-4 font-semibold cursor-pointer rounded-lg border-2 shadow-md bg-none hover:text-slate-100 hover:bg-slate-900 duration-150 transition-all">
             Edit
         </a>
+        @endcan
     </div>
 </x-layout>

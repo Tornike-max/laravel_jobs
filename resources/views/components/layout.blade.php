@@ -64,10 +64,11 @@
                                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                         alt="" />
                                     <div class="flex flex-col justify-center items-start">
-                                        <div class="text-base font-medium leading-none text-white">Tom Cook
+                                        <div class="text-base font-medium leading-none text-white">
+                                            {{auth()->user()->name}}
                                         </div>
                                         <div class="text-sm font-medium leading-none text-gray-400">
-                                            tom@example.com
+                                            {{auth()->user()->email}}
                                         </div>
                                     </div>
                                 </a>
@@ -76,11 +77,11 @@
 
                             @guest
                             <div class="flex items-center gap-4">
-                                <a
+                                <a href="/login"
                                     class="py-2 px-3 rounded-lg border-2 shadow-md bg-none cursor-pointer hover:shadow-xl bg-slate-100 duration-150 transition-all">
                                     Login
                                 </a>
-                                <a
+                                <a href="/register"
                                     class="py-2 px-3 rounded-lg border-2 shadow-md bg-none cursor-pointer hover:shadow-xl bg-slate-100 duration-150 transition-all">
                                     register
                                 </a>

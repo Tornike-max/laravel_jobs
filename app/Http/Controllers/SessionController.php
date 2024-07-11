@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
 {
@@ -25,7 +26,9 @@ class SessionController extends Controller
 
             return redirect('/');
         } else {
-            return redirect('/login');
+            throw ValidationException::withMessages([
+                'email' => 'Sorry, those credentials do not match'
+            ]);
         }
     }
 

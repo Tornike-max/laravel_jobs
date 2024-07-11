@@ -19,6 +19,7 @@ class EmployerFactory extends Factory
         return [
             'name' => fake()->company(),
             'email' => fake()->email(),
+            'user_id' => fake()->numberBetween(0, 3)
         ];
     }
 }

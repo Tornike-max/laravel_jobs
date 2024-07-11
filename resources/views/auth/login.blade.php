@@ -8,7 +8,8 @@
                     <x-form-field>
                         <x-label for='email' class='block text-sm font-medium leading-6 text-gray-900'>Email
                         </x-label>
-                        <x-input placeholder='johnDoe@example.com' type='email' id='email' name='email' />
+                        <x-input value="{{old('email')}}" placeholder='johnDoe@example.com' type='email' id='email'
+                            name='email' value="{{old('email')}}" />
                         <x-form-error name='email' />
                     </x-form-field>
 
