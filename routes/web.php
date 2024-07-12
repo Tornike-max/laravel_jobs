@@ -3,8 +3,18 @@
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
+use App\Mail\JobPosted;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
+
+Route::get('/test', function () {
+    dispatch(function () {
+        logger('Hello from the queue');
+    });
+
+    return 'Done';
+});
 
 Route::get('/', [JobController::class, 'index']);
 
